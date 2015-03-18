@@ -14,7 +14,13 @@ entryFile = './app/app.coffee'
 distPath = './public/js'
 bundleName = 'bundle.js'
 
-bundler = watchify browserify(entryFile, watchify.args)
+bArgs =
+  cache: {}
+  packageCache: {}
+  fullPaths: true
+  extensions: ['.cjsx', '.coffee']
+
+bundler = watchify browserify(entryFile, bArgs)
 bundler.transform(reactify)
 
 bundle = () ->

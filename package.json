@@ -21,6 +21,7 @@
     "hbs": "^3.0.1",
     "reactify": "^1.1.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^2.4.0"
+    "watchify": "^2.4.0",
+    "react": "~0.13.1"
   }
 }
