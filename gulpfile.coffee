@@ -42,3 +42,4 @@ gulp.task 'develop', ['server'], () ->
 
 gulp.task 'server', () ->
   server.start()
+  livereload.listen()
