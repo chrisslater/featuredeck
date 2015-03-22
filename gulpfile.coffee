@@ -4,13 +4,16 @@ gutil       = require('gulp-util')
 source      = require('vinyl-source-stream')
 watchify    = require('watchify')
 browserify  = require('browserify')
+
 reactify    = require('coffee-reactify')
 livereload  = require('gulp-livereload')
+
+require('coffee-react/register')
 
 # Project dependencies
 server      = require('./server')
 
-entryFile = './app/app'
+entryFile = './app/client'
 distPath = './public/js'
 bundleName = 'bundle.js'
 
@@ -19,6 +22,7 @@ bArgs =
   packageCache: {}
   fullPaths: true
   extensions: ['.cjsx', '.coffee']
+  debug: true
 
 bundler = watchify browserify(entryFile, bArgs)
 bundler.transform(reactify)
