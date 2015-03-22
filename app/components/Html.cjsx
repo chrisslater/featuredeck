@@ -7,19 +7,21 @@ Html = React.createClass
 
   render: () ->
 
-    pageTitle = @getStore(ApplicationStore).getPageTitle()
+    # pageTitle = @getStore(ApplicationStore).getPageTitle()
+    # content = this.props.children
 
     (
-      <html id="application">
+      <html>
         <head>
           <meta charSet="utf-8" />
-          <title>{pageTitle}</title>
+          <title>{@props.pageTitle}</title>
           <meta name="viewport" content="width=device-width, user-scalable=no" />
         </head>
         <body>
-          <div dangerouslySetInnerHTML={{__html: @props.markup}}></div>
+          {@props.children}
+          # <div dangerouslySetInnerHTML={{__html: @props.markup}}></div>
         </body>
-        <script dangerouslySetInnerHTML={{__html: @props.state}}></script>
+        # <script dangerouslySetInnerHTML={{__html: @props.state}}></script>
         <script src="/js/bundle.js" defer></script>
       </html>
     )

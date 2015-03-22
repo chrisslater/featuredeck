@@ -5,7 +5,7 @@ React           = require('react')
 serialize       = require('serialize-javascript')
 app             = require('./app/app')
 
-HtmlComponent = React.createFactory(require('./app/components/Html'))
+HtmlComponent = React.createFactory(require('./app/components/Application'))
 
 server = express()
 
@@ -32,17 +32,11 @@ server.use (req, res, next) ->
 
     html = React.renderToStaticMarkup HtmlComponent(
       state: exposed
-      markup: React.renderToString Component(
-        context: context.getComponentContext()
-      )
       context: context.getComponentContext()
     )
 
     debug 'Sending markup'
     res.send html
-
-server.get '/', (req, res) ->
-  res.render 'index'
 
 module.exports =
   start: (options) ->

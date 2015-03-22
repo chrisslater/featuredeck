@@ -14,6 +14,9 @@ Application = React.createClass
   statics:
     storeListeners: [ApplicationStore]
 
+  getDefaultProps: () ->
+    state: {}
+
   getInitialState: () ->
     @getApplicationState()
 
@@ -34,11 +37,23 @@ Application = React.createClass
         output = <About />
 
     return (
-      <div>
-        <Nav selected={@state.currentPageName} links={@state.pages} />
-        <h1>{@state.pageTitle}</h1>
-        {output}
-      </div>
+      <html id="application">
+        <head>
+          <meta charSet="utf-8" />
+          <title>{@state.pageTitle}</title>
+          <meta name="viewport" content="width=device-width, user-scalable=no" />
+        </head>
+        <body>
+          <div>
+            <Nav selected={@state.currentPageName} links={@state.pages} />
+            <h1>{@state.pageTitle}</h1>
+            {output}
+          </div>
+
+          <script dangerouslySetInnerHTML={{__html: @props.state}}></script>
+          <script src="/js/bundle.js" defer></script>
+        </body>
+      </html>
     )
 
 module.exports = Application
