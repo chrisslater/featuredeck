@@ -12,5 +12,6 @@ app.plug routrPlugin(
 )
 
 app.registerStore require('./stores/ApplicationStore')
+app.registerStore require('./stores/ItemStore')
 
 module.exports = app

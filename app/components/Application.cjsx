@@ -49,7 +49,6 @@ Application = React.createClass
             <h1>{@state.pageTitle}</h1>
             {output}
           </div>
-
           <script dangerouslySetInnerHTML={{__html: @props.state}}></script>
           <script src="/js/bundle.js" defer></script>
         </body>
