@@ -14,7 +14,7 @@ server.use express.static('public')
 fetchrPlugin = app.getPlugin('FetchrPlugin')
 server.use fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware()
 
-itemService = require('./services/Item')
+itemService = require('./services/items')
 app.getPlugin('FetchrPlugin').registerService(itemService)
 
 server.use (req, res, next) ->

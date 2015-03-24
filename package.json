@@ -31,9 +31,8 @@
     "coffee-react": "~3.0.1",
     "serialize-javascript": "~1.0.0",
     "fluxible-plugin-fetchr": "~0.2.3",
-    "fetchr": "~0.4.8"
-  },
-  "devDependencies": {
+    "fetchr": "~0.4.8",
     "nedb": "~1.1.1"
   }
+
 }

@@ -5,7 +5,6 @@ deleteAction = (actionContext, payload, done) ->
   actionContext.dispatch 'REMOVE_FROM_BASKET', payload
   done()
 
-
 Component = React.createClass
   contextTypes: {
     executeAction: React.PropTypes.func.isRequired
