@@ -29,6 +29,11 @@
     "debug": "~2.1.3",
     "flux-router-component": "~0.6.0",
     "coffee-react": "~3.0.1",
-    "serialize-javascript": "~1.0.0"
+    "serialize-javascript": "~1.0.0",
+    "fluxible-plugin-fetchr": "~0.2.3",
+    "fetchr": "~0.4.8"
+  },
+  "devDependencies": {
+    "nedb": "~1.1.1"
   }
 }

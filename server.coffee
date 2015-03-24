@@ -11,8 +11,16 @@ server = express()
 
 server.use express.static('public')
 
+itemService = require('./services/Item')
+fetcherPlugin = app.getPlugin('FetchrPlugin')
+fetcherPlugin.registerService(itemService)
+
+server.use fetcherPlugin.getXhrPath(), fetcherPlugin.getMiddleware()
+
 server.use (req, res, next) ->
-  context = app.createContext()
+  context = app.createContext
+    req: req
+
   debug 'Executing navigate action'
 
   context.executeAction navigateAction, { url: req.url }, (err) ->
