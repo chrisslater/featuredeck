@@ -11,11 +11,11 @@ server = express()
 
 server.use express.static('public')
 
-itemService = require('./services/Item')
-fetcherPlugin = app.getPlugin('FetchrPlugin')
-fetcherPlugin.registerService(itemService)
+fetchrPlugin = app.getPlugin('FetchrPlugin')
+server.use fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware()
 
-server.use fetcherPlugin.getXhrPath(), fetcherPlugin.getMiddleware()
+itemService = require('./services/Item')
+app.getPlugin('FetchrPlugin').registerService(itemService)
 
 server.use (req, res, next) ->
   context = app.createContext

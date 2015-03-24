@@ -8,13 +8,6 @@ Application = require('./components/Application')
 app = new Fluxible
   component: React.createFactory(Application)
 
-# context = app.createContext()
-# loaderItemsAction = require('./actions/loaderItems')
-
-# context.executeAction loaderItemsAction, {}, (err) ->
-#   throw err if err
-
-
 app.plug routrPlugin(
   routes: require('./routes')
 )

@@ -13,6 +13,9 @@ Component = React.createClass
   getInitialState: () ->
     @getStore(ItemStore).getState()
 
+  onChange: () ->
+    @getStore(ItemStore).getState()
+
   render: () ->
 
 
