@@ -1,16 +1,19 @@
 createStore = require('fluxible/addons').createStore
+_ = require('underscore')
 
 Store = createStore
   storeName: 'ItemStore'
   handlers:
     'GET_ITEMS': 'handleGetItems'
     'ADD_ITEM': 'handleAddItem'
+    'REMOVE_ITEM': 'handleRemoveItem'
     'ADD_TO_BASKET': 'handleAddToBasket'
     'REMOVE_FROM_BASKET' : 'handleRemoveFromBasket'
     'EMPTY_BASKET': 'handleEmptyBasket'
 
   initialize: () ->
     @items = []
+    @basket = []
 
   handleGetItems: (items) ->
     console.log 'items: ', items
@@ -18,12 +21,16 @@ Store = createStore
     @emitChange()
 
   handleAddItem: (item) ->
-    @item[item._id] = item
+    @items.push item
+    @emitChange()
+
+  handleRemoveItem: (item) ->
+    @items.push item
     @emitChange()
 
   handleAddToBasket: (key, item) ->
     console.log 'handleAddToBasket'
-    @items[key] = item
+    @basket.push(item);
     @emitChange()
 
   handleRemoveFromBasket: (key) ->

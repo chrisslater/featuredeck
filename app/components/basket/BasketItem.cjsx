@@ -1,9 +1,12 @@
 React = require('react')
 
-deleteAction = (actionContext, payload, done) ->
-  console.log arguments
-  actionContext.dispatch 'REMOVE_FROM_BASKET', payload
-  done()
+
+# deleteAction = (actionContext, payload, done) ->
+#   console.log arguments
+#   actionContext.dispatch 'REMOVE_FROM_BASKET', payload
+#   done()
+
+deleteAction = require('../../actions/items/deleteItem')
 
 Component = React.createClass
   contextTypes: {

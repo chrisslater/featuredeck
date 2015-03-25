@@ -6,8 +6,9 @@ module.exports =
     page: 'home'
     label: 'Home'
     action: (context, payload, done) ->
-      context.dispatch 'UPDATE_PAGE_TITLE', { pageTitle: 'Home | flux-examples | routing' }
-      done()
+      context.executeAction require('./actions/items/getItems') , {}, () ->
+        context.dispatch 'UPDATE_PAGE_TITLE', { pageTitle: 'Home | flux-examples | routing' }
+        done()
 
   about:
     path: '/about'

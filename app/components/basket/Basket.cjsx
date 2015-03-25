@@ -17,6 +17,11 @@ Component = React.createClass
 
   onChange: () ->
     @getStore(ItemStore).getState()
+    console.log 'Basket onChange', @getStore(ItemStore).getState()
+
+  componentWillMount: () ->
+    console.log 'Basket componentWillMount'
+    console.log @getStore(ItemStore).getState()
 
   onGetItemsClick: () ->
     @executeAction loaderItems

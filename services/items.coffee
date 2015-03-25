@@ -11,8 +11,12 @@ module.exports =
 
   # other methods
   create: (req, resource, params, body, config, callback) ->
-    items.insert { name: 'This is a test!' }, (err, item) ->
+    items.insert body, (err, item) ->
       callback null, item
 
   # update: function(req, resource, params, body, config, callback) {},
-  # delete: function(req, resource, params, config, callback) {}
+  delete: function(req, resource, params, config, callback) {
+    console.log arguments
+    # items.remove();
+
+  }
