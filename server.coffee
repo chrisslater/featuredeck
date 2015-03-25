@@ -4,11 +4,15 @@ debug           = require('debug')('Example')
 React           = require('react')
 serialize       = require('serialize-javascript')
 app             = require('./app/app')
+bodyParser      = require('body-parser')
+
+
 
 HtmlComponent = React.createFactory(require('./app/components/Application'))
 
 server = express()
 
+server.use bodyParser.json()
 server.use express.static('public')
 
 fetchrPlugin = app.getPlugin('FetchrPlugin')

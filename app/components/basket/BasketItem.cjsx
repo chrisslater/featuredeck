@@ -11,6 +11,8 @@ Component = React.createClass
   },
 
   getDefaultProps: () ->
+    key: 0
+    name: 'Default item'
     quantity: 1
 
   onDeleteClick: () ->
@@ -21,7 +23,7 @@ Component = React.createClass
     (
       <div className="basket-item">
         <div>Picture</div>
-        <h2>Description text stuff</h2>
+        <h2>{@props.name}</h2>
         <p><small>Quantity {@props.quantity}</small></p>
         <button onClick={@onDeleteClick}>Delete</button>
         <hr />

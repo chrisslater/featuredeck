@@ -1,7 +1,5 @@
 items = require('../server/db').items
 
-console.log items
-
 module.exports =
   # Name is the resource. Required.
   name: 'items'
@@ -13,8 +11,7 @@ module.exports =
 
   # other methods
   create: (req, resource, params, body, config, callback) ->
-    console.log 'Hitting here', arguments
-    items.create { name: 'This is a test!' }, (err, item) ->
+    items.insert { name: 'This is a test!' }, (err, item) ->
       callback null, item
 
   # update: function(req, resource, params, body, config, callback) {},

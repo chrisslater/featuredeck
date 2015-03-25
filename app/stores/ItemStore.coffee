@@ -10,9 +10,10 @@ Store = createStore
     'EMPTY_BASKET': 'handleEmptyBasket'
 
   initialize: () ->
-    @items = {}
+    @items = []
 
   handleGetItems: (items) ->
+    console.log 'items: ', items
     @items = items
     @emitChange()
 

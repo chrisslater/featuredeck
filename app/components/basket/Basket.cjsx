@@ -24,7 +24,21 @@ Component = React.createClass
   onCreateItemClick: () ->
     @executeAction createItem, { name: 'w00t' }
 
+  mapBasketItems: (items) ->
+    Object.keys(items).map (key) ->
+      item = items[key]
+
+      if item
+        return <BasketItem key={key} name={item.name} quantity={item.quantity}>{item.name}</BasketItem>
+
+
+      return ''
+
+
   render: () ->
+
+    items = @getStore(ItemStore).getState().items
+    basketItems = @mapBasketItems items
 
     (
       <div>
@@ -32,8 +46,7 @@ Component = React.createClass
         <button onClick={@onGetItemsClick}>Load items</button>
         <button onClick={@onCreateItemClick}>Create new item</button>
         <div>
-          <BasketItem  />
-          <BasketItem quantity={2} />
+          {basketItems}
         </div>
       </div>
     )

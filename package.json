@@ -32,7 +32,7 @@
     "serialize-javascript": "~1.0.0",
     "fluxible-plugin-fetchr": "~0.2.3",
     "fetchr": "~0.4.8",
-    "nedb": "~1.1.1"
+    "nedb": "~1.1.1",
+    "body-parser": "~1.12.2"
   }
-
 }
