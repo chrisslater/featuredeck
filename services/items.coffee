@@ -15,8 +15,6 @@ module.exports =
       callback null, item
 
   # update: function(req, resource, params, body, config, callback) {},
-  delete: function(req, resource, params, config, callback) {
-    console.log arguments
-    # items.remove();
-
-  }
+  delete: (req, resource, params, config, callback) ->
+    items.remove { _id: params._id }, {}, (err, numRemoved) ->
+      callback null, params

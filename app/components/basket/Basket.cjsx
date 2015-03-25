@@ -1,7 +1,7 @@
 React = require('react')
 FluxibleMixin = require('fluxible').FluxibleMixin
 ItemStore = require('../../stores/ItemStore')
-loaderItems = require('../../actions/loaderItems')
+getItems = require('../../actions/items/getItems')
 createItem = require('../../actions/items/createItem')
 
 BasketItem = require('./BasketItem')
@@ -16,29 +16,22 @@ Component = React.createClass
     @getStore(ItemStore).getState()
 
   onChange: () ->
-    @getStore(ItemStore).getState()
-    console.log 'Basket onChange', @getStore(ItemStore).getState()
-
-  componentWillMount: () ->
-    console.log 'Basket componentWillMount'
-    console.log @getStore(ItemStore).getState()
+    @setState(@getStore(ItemStore).getState())
 
   onGetItemsClick: () ->
-    @executeAction loaderItems
+    @executeAction getItems
 
   onCreateItemClick: () ->
-    @executeAction createItem, { name: 'w00t' }
+    @executeAction createItem, { name: 'w00t' } #TODO Get the prop items instead of hardcoding
 
   mapBasketItems: (items) ->
     Object.keys(items).map (key) ->
       item = items[key]
 
       if item
-        return <BasketItem key={key} name={item.name} quantity={item.quantity}>{item.name}</BasketItem>
-
+        return <BasketItem _id={item._id} name={item.name} quantity={item.quantity}>{item.name}</BasketItem>
 
       return ''
-
 
   render: () ->
 

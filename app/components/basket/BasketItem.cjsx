@@ -1,26 +1,12 @@
 React = require('react')
-
-
-# deleteAction = (actionContext, payload, done) ->
-#   console.log arguments
-#   actionContext.dispatch 'REMOVE_FROM_BASKET', payload
-#   done()
-
-deleteAction = require('../../actions/items/deleteItem')
+removeAction = require('../../actions/items/removeItem')
 
 Component = React.createClass
-  contextTypes: {
+  contextTypes:
     executeAction: React.PropTypes.func.isRequired
-  },
 
-  getDefaultProps: () ->
-    key: 0
-    name: 'Default item'
-    quantity: 1
-
-  onDeleteClick: () ->
-    console.log('DELETE CLICK')
-    @context.executeAction deleteAction, @props
+  onRemoveClick: () ->
+    @context.executeAction removeAction, @props
 
   render: () ->
     (
@@ -28,7 +14,7 @@ Component = React.createClass
         <div>Picture</div>
         <h2>{@props.name}</h2>
         <p><small>Quantity {@props.quantity}</small></p>
-        <button onClick={@onDeleteClick}>Delete</button>
+        <button onClick={@onRemoveClick}>Remove</button>
         <hr />
       </div>
     )
