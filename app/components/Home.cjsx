@@ -1,5 +1,4 @@
 React = require('react')
-Basket = require('./basket/Basket')
 
 Page = React.createClass
 
@@ -8,7 +7,7 @@ Page = React.createClass
 
   render: () ->
     return (
-      <Basket />
+      <h1>Hello World!</h1>
     )
 
 module.exports = Page

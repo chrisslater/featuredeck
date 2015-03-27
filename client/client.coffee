@@ -1,7 +1,7 @@
 React = require('react')
 debug = require('debug')
 bootstrapDebug = debug('Example')
-app = require('./app')
+app = require('../app/app')
 
 dehydratedState = window.App # Sent from the server
 

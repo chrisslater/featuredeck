@@ -3,12 +3,10 @@ navigateAction  = require('flux-router-component').navigateAction
 debug           = require('debug')('Example')
 React           = require('react')
 serialize       = require('serialize-javascript')
-app             = require('./app/app')
+app             = require('../app/app')
 bodyParser      = require('body-parser')
 
-
-
-HtmlComponent = React.createFactory(require('./app/components/Application'))
+HtmlComponent = React.createFactory(require('../app/components/Application'))
 
 server = express()
 
@@ -17,9 +15,6 @@ server.use express.static('public')
 
 fetchrPlugin = app.getPlugin('FetchrPlugin')
 server.use fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware()
-
-itemService = require('./services/items')
-app.getPlugin('FetchrPlugin').registerService(itemService)
 
 server.use (req, res, next) ->
   context = app.createContext

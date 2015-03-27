@@ -1,10 +1,13 @@
 React = require('react')
 
+# Components
 Nav = require('./Nav')
 Home = require('./Home')
-About = require('./About')
 
+# Stores
 ApplicationStore = require('../stores/ApplicationStore')
+
+# Mixins
 RouterMixin = require('flux-router-component').RouterMixin
 FluxibleMixin = require('fluxible').FluxibleMixin
 

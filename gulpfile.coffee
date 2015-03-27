@@ -11,9 +11,9 @@ livereload  = require('gulp-livereload')
 require('coffee-react/register')
 
 # Project dependencies
-server      = require('./server')
+server      = require('./server/server')
 
-entryFile = './app/client'
+entryFile = './client/client'
 distPath = './public/js'
 bundleName = 'bundle.js'
 
