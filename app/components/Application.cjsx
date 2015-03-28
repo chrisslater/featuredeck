@@ -3,7 +3,6 @@ React = require('react')
 # Components
 Nav = require('./Nav')
 Home = require('./Home')
-Login = require('./user/Login')
 
 # Stores
 ApplicationStore = require('../stores/ApplicationStore')
@@ -46,16 +45,20 @@ Application = React.createClass
           <meta charSet="utf-8" />
           <title>{@state.pageTitle}</title>
           <meta name="viewport" content="width=device-width, user-scalable=no" />
+
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
         </head>
         <body>
-          <Login />
-          <div>
+          <div class="container">
             <Nav selected={@state.currentPageName} links={@state.pages} />
             <h1>{@state.pageTitle}</h1>
             {output}
           </div>
           <script dangerouslySetInnerHTML={{__html: @props.state}}></script>
           <script src="/js/bundle.js" defer></script>
+          <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         </body>
       </html>
     )

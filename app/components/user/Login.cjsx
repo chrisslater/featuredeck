@@ -35,10 +35,10 @@ Component = React.createClass
     stateText = if @state.userState then 'in' else 'out'
 
     return (
-      <div>
-        <p>You are logged {stateText}</p>
-        <button onClick={@onLoginClick}>Login</button>
-        <button onClick={@onLogoutClick}>Logout</button>
+      <div className="navbar-text navbar-right">
+        <button className="btn btn-default navbar-btn" onClick={@onLoginClick}>Login</button>
+        <button className="btn btn-default navbar-btn" onClick={@onLogoutClick}>Logout</button>
+        <span>You are logged {stateText}</span>
       </div>
     )
 

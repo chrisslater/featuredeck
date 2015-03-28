@@ -1,6 +1,8 @@
 React = require('react')
 NavLink = require('flux-router-component').NavLink
 
+Login = require('./user/Login')
+
 Component = React.createClass
 
   getDefaultProps: () ->
@@ -12,7 +14,7 @@ Component = React.createClass
       link = links[name]
 
       if link.label
-        return <NavLink routeName={link.page}>{link.label}</NavLink>
+        return <li><NavLink className="navbar-link" routeName={link.page}>{link.label}</NavLink></li>
 
   render: () ->
     selected = @props.selected
@@ -21,8 +23,16 @@ Component = React.createClass
     linkHtml = @mapLinks links
 
     (
-      <nav>
-        {linkHtml}
+      <nav className="navbar navbar-default navbar-inverse">
+        <div className="container-fluid">
+          <div className="navbar-header">
+            <a className="navbar-brand">Featuredeck</a>
+          </div>
+          <ul className="nav navbar-nav">
+            {linkHtml}
+          </ul>
+          <Login />
+        </div>
       </nav>
     )
 
