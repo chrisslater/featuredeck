@@ -3,6 +3,7 @@ React = require('react')
 # Components
 Nav = require('./Nav')
 Home = require('./Home')
+Login = require('./user/Login')
 
 # Stores
 ApplicationStore = require('../stores/ApplicationStore')
@@ -47,6 +48,7 @@ Application = React.createClass
           <meta name="viewport" content="width=device-width, user-scalable=no" />
         </head>
         <body>
+          <Login />
           <div>
             <Nav selected={@state.currentPageName} links={@state.pages} />
             <h1>{@state.pageTitle}</h1>

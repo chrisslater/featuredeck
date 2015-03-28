@@ -1,13 +1,15 @@
 # Isomophic base application
 
-Shared base application for future isomorphic projects written in javascript.
+Shared base application for future isomorphic projects written in React javascript.
 
 This application is using the following libraries:
+
 
 * Gulp
 * Express
 * Browserify
 * CoffeeScript
+* ReactJS
 
 ## Usage
 

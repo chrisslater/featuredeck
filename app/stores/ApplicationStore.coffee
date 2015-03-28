@@ -3,6 +3,7 @@ routesConfig= require('../routes')
 
 Store = createStore
   storeName: 'ApplicationStore'
+
   handlers:
     'CHANGE_ROUTE_SUCCESS' : 'handleNavigate'
     'UPDATE_PAGE_TITLE'    : 'updatePageTitle'
