@@ -12,6 +12,7 @@ server = express()
 
 server.use bodyParser.json()
 server.use express.static('public')
+server.use express.static('static')
 
 # Must register resource in order for this to start being used
 fetchrPlugin = app.getPlugin('FetchrPlugin')
