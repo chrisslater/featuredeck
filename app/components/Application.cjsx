@@ -36,9 +36,6 @@ Application = React.createClass
       when 'home'
         output = <Home />
 
-      when 'about'
-        output = <About />
-
     return (
       <html id="application">
         <head>
@@ -50,7 +47,7 @@ Application = React.createClass
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css" />
         </head>
         <body>
-          <div class="container">
+          <div className="container">
             <Nav selected={@state.currentPageName} links={@state.pages} />
             <h1>{@state.pageTitle}</h1>
             {output}

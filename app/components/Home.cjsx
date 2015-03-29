@@ -1,5 +1,8 @@
 React = require('react')
 
+# Components
+Features = require('./features/Features')
+
 # Mixins
 FluxibleMixin = require('fluxible').FluxibleMixin
 
@@ -22,12 +25,10 @@ Page = React.createClass
     @getStore(UserStore).getState()
 
   render: () ->
-    stateText = if @state.userState then 'in' else 'out'
 
     return (
       <div>
-        <h2>Hello world</h2>
-        <p>You are in a logged {stateText} state</p>
+        <Features loggedIn={@state.userState} />
       </div>
     )
 
