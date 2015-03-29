@@ -1,11 +1,18 @@
 module.exports =
 
-  home:
+  features:
     path: '/'
     method: 'get'
-    page: 'home'
-    label: 'Home'
+    page: 'features'
+    label: 'features'
     action: (context, payload, done) ->
-      context.dispatch 'SET_USER_STATE', false
       context.dispatch 'UPDATE_PAGE_TITLE', { pageTitle: 'Home | flux-examples | routing' }
+      done()
+
+  featuresNew:
+    path: '/new-feature'
+    method: 'get'
+    page: 'featuresNew'
+    action: (context, payload, done) ->
+      context.dispatch 'UPDATE_PAGE_TITLE', { pageTitle: 'Add new feature' }
       done()

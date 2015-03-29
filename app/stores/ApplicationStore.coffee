@@ -7,6 +7,8 @@ Store = createStore
   handlers:
     'CHANGE_ROUTE_SUCCESS' : 'handleNavigate'
     'UPDATE_PAGE_TITLE'    : 'updatePageTitle'
+    'ADD_ALERT'          : 'handleAddAlert'
+    'REMOVE_ALERT'         : 'handleRemoveAlert'
 
   initialize: () ->
     @currentPageName = null
@@ -14,6 +16,7 @@ Store = createStore
     @currentRoute = null
     @pages = routesConfig
     @pageTitle = ''
+    @alert = null
 
   handleNavigate: (route) ->
     if @currentRoute and (@currentRoute.url == route.url)
@@ -25,10 +28,21 @@ Store = createStore
     @currentPageName = pageName
     @currentPage = page
     @currentRoute = route
+
+  #console.log 'page name', pageName
+
     @emitChange()
 
   updatePageTitle: (title) ->
     @pageTitle = title.pageTitle
+    @emitChange()
+
+  handleAddAlert: (alert) ->
+    @alert = alert
+    @emitChange()
+
+  handleRemoveAlert: () ->
+    @alert = null
     @emitChange()
 
   getCurrentPageName: () ->
@@ -43,6 +57,7 @@ Store = createStore
     pages:            @pages
     route:            @currentRoute
     pageTitle:        @pageTitle
+    alert:            @alert
 
   dehydrate: () ->
     @getState()
@@ -53,6 +68,7 @@ Store = createStore
     @pages            = state.pages
     @currentRoute     = state.route
     @pageTitle        = state.pageTitle
+    @alert            = state.alert
 
 
 module.exports = Store

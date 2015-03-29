@@ -2,6 +2,7 @@ React = require('react')
 
 # Components
 Nav = require('./Nav')
+Alert = require('./alerts/Alert')
 Home = require('./Home')
 
 # Stores
@@ -33,8 +34,10 @@ Application = React.createClass
     output = ''
 
     switch @state.currentPageName
-      when 'home'
+      when 'home', 'features'
         output = <Home />
+      when 'featuresNew'
+        output = <Home featuresStartState="form" />
 
     return (
       <html id="application">
@@ -49,6 +52,7 @@ Application = React.createClass
         <body>
           <div className="container">
             <Nav selected={@state.currentPageName} links={@state.pages} />
+            {<Alert message={@state.alert.message} type={@state.alert.type} /> if @state.alert}
             <h1>{@state.pageTitle}</h1>
             {output}
           </div>

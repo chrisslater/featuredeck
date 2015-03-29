@@ -15,6 +15,9 @@ Page = React.createClass
   statics:
     storeListeners: [UserStore]
 
+  getDefaultProps: (props) ->
+    featuresStartState: 'list'
+
   getInitialState: () ->
     @getUserStoreState()
 
@@ -28,7 +31,7 @@ Page = React.createClass
 
     return (
       <div>
-        <Features loggedIn={@state.userState} />
+        <Features loggedIn={@state.userState} start={@props.featuresStartState} />
       </div>
     )
 

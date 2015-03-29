@@ -19,11 +19,12 @@ Component = React.createClass
   onFormSubmit: (e) ->
     e.preventDefault()
     @executeAction submitNewFeature, @state
+    @refs.form.getDOMNode().reset()
 
   render: () ->
 
     (
-      <form onSubmit={@onFormSubmit}>
+      <form onSubmit={@onFormSubmit} ref="form">
         <div class="form-group">
           <label for="title">Title</label>
           <input type="text" class="form-control" id="title" placeholder="Enter title" onChange={@onChangeTitle} />
