@@ -25,6 +25,12 @@ Component = React.createClass
   getUserStoreState: () ->
     @getStore(UserStore).getState()
 
+  onToggleState: () ->
+    if @state.userState
+      @onLogoutClick()
+    else
+      @onLoginClick()
+
   onLoginClick: () ->
     @executeAction loginAction, true
 
@@ -32,13 +38,11 @@ Component = React.createClass
     @executeAction logoutAction, false
 
   render: () ->
-    stateText = if @state.userState then 'in' else 'out'
+    stateText = if @state.userState then 'Logout' else 'Login'
 
     return (
       <div className="navbar-text navbar-right">
-        <button className="btn btn-default navbar-btn" onClick={@onLoginClick}>Login</button>
-        <button className="btn btn-default navbar-btn" onClick={@onLogoutClick}>Logout</button>
-        <span>You are logged {stateText}</span>
+        <button className="btn btn-default navbar-btn" onClick={@onToggleState}>{stateText}</button>
       </div>
     )
 

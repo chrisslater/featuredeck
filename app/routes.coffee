@@ -6,7 +6,7 @@ module.exports =
     page: 'features'
     label: 'features'
     action: (context, payload, done) ->
-      context.dispatch 'UPDATE_PAGE_TITLE', { pageTitle: 'Home | flux-examples | routing' }
+      context.dispatch 'UPDATE_PAGE_TITLE', { pageTitle: 'Features list' }
       done()
 
   featuresNew:
