@@ -2,14 +2,14 @@ React = require('react')
 
 Component = React.createClass
 
-    getDefaultProps: (props) ->
+  getDefaultProps: (props) ->
 
-    render: () ->
+  render: () ->
 
-      (
-        <div>
-          <a>Up</a> <a>Down</a>
-        </div>
-      )
+    (
+      <div>
+        <a>Up</a> <a>Down</a>
+      </div>
+    )
 
-  module.exports = Component
+module.exports = Component
