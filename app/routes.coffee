@@ -7,6 +7,8 @@ module.exports =
     label: 'features'
     action: (context, payload, done) ->
       context.dispatch 'UPDATE_PAGE_TITLE', { pageTitle: 'Features list' }
+      getFeaturesAction = require './actions/features/getFeatures'
+      context.executeAction getFeaturesAction
       done()
 
   featuresNew:

@@ -13,7 +13,7 @@ Component = React.createClass
     output = []
 
     for feature in @props.features
-      output.push <Feature isLoggedIn={@props.isLoggedIn} isAdmin={@props.isAdmin} name={feature.name} count={feature.count} />
+      output.push <Feature isLoggedIn={@props.isLoggedIn} isAdmin={@props.isAdmin} title={feature.title} count={feature.count} />
 
     output
 
@@ -26,7 +26,7 @@ Component = React.createClass
         <div className="row">
           <table className="table">
             <tr>
-              <th>Feature name</th>
+              <th>Feature title</th>
               <th>Count</th>
               <th>Actions</th>
             </tr>

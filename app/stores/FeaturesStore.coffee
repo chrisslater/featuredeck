@@ -8,13 +8,13 @@ Store = createStore
 
   initialize: () ->
     @features = [{
-      name: 'Add shizzle to the nizzle'
+      title: 'Add shizzle to the nizzle'
       count: 4
     }, {
-      name: 'Remove sizzle from the dizzle'
+      title: 'Remove sizzle from the dizzle'
       count: 10
     }, {
-      name: 'Set ya pizzle'
+      title: 'Set ya pizzle'
       count: 5
     }]
 

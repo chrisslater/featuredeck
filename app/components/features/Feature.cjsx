@@ -6,7 +6,7 @@ Component = React.createClass
   displayName: 'Feature'
 
   getDefaultProps: () ->
-    name: '<< Feature name >>'
+    title: '<< Feature name >>'
     count: 0
 
   render: () ->
