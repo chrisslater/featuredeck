@@ -4,25 +4,36 @@ Store = createStore
   storeName: 'UserStore'
 
   handlers:
-    'SET_USER_STATE' : 'handleSetUserState'
+    'SET_IS_LOGGED_IN' : 'handleSetIsLoggedIn'
+    'SET_IS_ADMIN' : 'handleSetIsAdmin'
 
   initialize: () ->
-    @userState = false
+    @isLoggedIn = false
+    @isAdmin    = false
 
-  handleSetUserState: (state) ->
-    @userState = state
+  handleSetIsLoggedIn: (isLoggedIn) ->
+    @isLoggedIn = isLoggedIn
     @emitChange()
 
-  getUserState: () ->
-    @userState
+  handleSetIsAdmin: (isAdmin) ->
+    @isAdmin = isAdmin
+    @emitChange()
+
+  getIsLoggedIn: () ->
+    @isLoggedIn
+
+  getIsAdmin: () ->
+    @isAdmin
 
   getState: () ->
-    userState:  @userState
+    isLoggedIn  :  @isLoggedIn
+    isAdmin     :  @isAdmin
 
   dehydrate: () ->
     @getState()
 
   rehydrate: (state) ->
-    @userState  = state.userState
+    @isLoggedIn = state.isLoggedIn
+    @isAdmin    = state.isAdmin
 
 module.exports = Store

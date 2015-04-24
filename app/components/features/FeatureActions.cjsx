@@ -1,14 +1,22 @@
 React = require('react')
 
 Component = React.createClass
+  displayName: 'FeatureActions'
 
-  getDefaultProps: (props) ->
+  getDefaultProps: () ->
+    anonText: 'Please login to use actions'
+
+  getCountControls: () ->
+    [
+      <a>up</a>,
+      <a>down</a>
+    ]
 
   render: () ->
-
     (
       <div>
-        <a>Up</a> <a>Down</a>
+        {if @props.isLoggedIn then @getCountControls() else @props.anonText}
+        {<a>delete</a> if @props.isLoggedIn and @props.isAdmin}
       </div>
     )
 

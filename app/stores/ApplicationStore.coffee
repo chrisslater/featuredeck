@@ -29,8 +29,6 @@ Store = createStore
     @currentPage = page
     @currentRoute = route
 
-  #console.log 'page name', pageName
-
     @emitChange()
 
   updatePageTitle: (title) ->

@@ -7,10 +7,8 @@ FluxibleMixin = require('fluxible').FluxibleMixin
 submitNewFeature = require('../../actions/features/submitNewFeature')
 
 Component = React.createClass
+  displayName: 'FeaturesForm'
   mixins: [FluxibleMixin]
-
-  getDefaultProps: () ->
-    loggedIn: false
 
   onChangeTitle: (e) ->
     @setState
@@ -24,7 +22,7 @@ Component = React.createClass
   render: () ->
 
 
-    if @props.loggedIn
+    if @props.isLoggedIn
       output =  <form onSubmit={@onFormSubmit} ref="form">
                   <div class="form-group">
                     <label for="title">Title</label>

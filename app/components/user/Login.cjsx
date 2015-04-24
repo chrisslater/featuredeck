@@ -7,8 +7,8 @@ FluxibleMixin = require('fluxible').FluxibleMixin
 UserStore = require('../../stores/UserStore')
 
 # Actions
-loginAction = require('../../actions/user/login')
-logoutAction = require('../../actions/user/logout')
+setIsLoggedInAction = require('../../actions/user/setIsLoggedIn')
+setIsAdminAction = require('../../actions/user/setIsAdmin')
 
 Component = React.createClass
   mixins: [FluxibleMixin]
@@ -25,24 +25,32 @@ Component = React.createClass
   getUserStoreState: () ->
     @getStore(UserStore).getState()
 
-  onToggleState: () ->
-    if @state.userState
-      @onLogoutClick()
+  onToggleIsLoggedInClick: () ->
+    if @state.isLoggedIn
+      @setIsLoggedIn false
     else
-      @onLoginClick()
+      @setIsLoggedIn true
 
-  onLoginClick: () ->
-    @executeAction loginAction, true
+  onToggleIsAdminClick: () ->
+    if @state.isAdmin
+      @setIsAdmin false
+    else
+      @setIsAdmin true
 
-  onLogoutClick: () ->
-    @executeAction logoutAction, false
+  setIsLoggedIn: (state) ->
+    @executeAction setIsLoggedInAction, { isLoggedIn: state }
+
+  setIsAdmin: (state) ->
+    @executeAction setIsAdminAction, { isAdmin: state }
 
   render: () ->
-    stateText = if @state.userState then 'Logout' else 'Login'
+    isLoggedInText = if @state.isLoggedIn then 'Logout' else 'Login'
+    isAdminText = if @state.isAdmin then 'Normal' else 'Admin'
 
     return (
       <div className="navbar-text navbar-right">
-        <button className="btn btn-default navbar-btn" onClick={@onToggleState}>{stateText}</button>
+        {<button className="btn btn-default navbar-btn" onClick={@onToggleIsAdminClick}>{isAdminText}</button> if @state.isLoggedIn}
+        <button className="btn btn-default navbar-btn" onClick={@onToggleIsLoggedInClick}>{isLoggedInText}</button>
       </div>
     )
 

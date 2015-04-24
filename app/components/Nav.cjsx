@@ -4,6 +4,7 @@ NavLink = require('flux-router-component').NavLink
 Login = require('./user/Login')
 
 Component = React.createClass
+  displayName: 'Nav'
 
   getDefaultProps: () ->
     selected: 'home'

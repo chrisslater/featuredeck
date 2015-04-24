@@ -10,6 +10,7 @@ FluxibleMixin = require('fluxible').FluxibleMixin
 UserStore = require('../stores/UserStore')
 
 Page = React.createClass
+  displayName: 'HomePage'
   mixins: [FluxibleMixin]
 
   statics:

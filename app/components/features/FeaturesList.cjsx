@@ -3,10 +3,19 @@ React = require('react')
 Feature = require('./Feature')
 
 Component = React.createClass
+  displayName: 'FeaturesList'
 
-  getDefaultProps: (props) ->
-    title: 'All features'
-    loggedIn: false
+  getDefaultProps: () ->
+    title     : 'All features'
+    features  : []
+
+  getFeatures: () ->
+    output = []
+
+    for feature in @props.features
+      output.push <Feature isLoggedIn={@props.isLoggedIn} isAdmin={@props.isAdmin} name={feature.name} count={feature.count} />
+
+    output
 
   render: () ->
 
@@ -21,7 +30,7 @@ Component = React.createClass
               <th>Count</th>
               <th>Actions</th>
             </tr>
-            <Feature loggedIn={@props.loggedIn} />
+            {@getFeatures()}
           </table>
         </div>
       </div>

@@ -3,19 +3,13 @@ React = require('react')
 FeatureActions = require('./FeatureActions')
 
 Component = React.createClass
+  displayName: 'Feature'
 
-  getDefaultProps: (props) ->
-    name: 'Feature Placholder text'
-    count: 1000
-    loggedIn: false
-
-  getActions: () ->
-    output =  if @props.loggedIn then <FeatureActions /> else 'Please login to use actions'
+  getDefaultProps: () ->
+    name: '<< Feature name >>'
+    count: 0
 
   render: () ->
-
-    actions = @getActions()
-
     (
       <tr>
         <td>
@@ -25,7 +19,7 @@ Component = React.createClass
           {@props.count}
         </td>
         <td>
-          {actions}
+          <FeatureActions isLoggedIn={@props.isLoggedIn} isAdmin={@props.isAdmin} />
         </td>
       </tr>
     )

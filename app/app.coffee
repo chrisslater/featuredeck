@@ -18,5 +18,6 @@ app.plug fetchrPlugin(
 
 app.registerStore require('./stores/ApplicationStore')
 app.registerStore require('./stores/UserStore')
+app.registerStore require('./stores/FeaturesStore')
 
 module.exports = app
