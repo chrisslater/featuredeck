@@ -14,8 +14,13 @@ server.use bodyParser.json()
 server.use express.static('public')
 server.use express.static('static')
 
+featuresService = require('../services/FeaturesService')
+
+
 # Must register resource in order for this to start being used
 fetchrPlugin = app.getPlugin('FetchrPlugin')
+
+fetchrPlugin.registerService(featuresService)
 server.use fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware()
 
 server.use (req, res, next) ->

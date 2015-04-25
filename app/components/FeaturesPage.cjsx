@@ -24,13 +24,15 @@ Page = React.createClass
     featuresStartState: 'list'
 
   getInitialState: () ->
-    merge @getUserStoreState(), @getFeaturesStoreState()
+    featuresStoreState = @getFeaturesStoreState()
+    console.log 'getInitialState', featuresStoreState
+    merge @getUserStoreState(), featuresStoreState
 
   onUserStoreChange: () ->
     @setState @getUserStoreState()
 
   onFeaturesStoreChange: () ->
-    @setState @getUserStoreState()
+    @setState @getFeaturesStoreState()
 
   getUserStoreState: () ->
     @getStore(UserStore).getState()

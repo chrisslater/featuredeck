@@ -2,9 +2,9 @@ navigateAction = require('flux-router-component').navigateAction
 features = require('../../../server/db').features;
 
 module.exports = (context, payload, done) ->
+  window.features = features
 
-  features.insert ({ title: 'TEST'}, (err, newDoc) ->
-    console.log 'newDoc', newDoc
+  context.service.create 'features', payload, {}, (err, feature) ->
 
     context.dispatch 'ADD_ALERT',
       type: 'success'
@@ -12,4 +12,3 @@ module.exports = (context, payload, done) ->
 
     path = context.router.makePath 'features'
     context.executeAction navigateAction, {url: path}, done
-  )

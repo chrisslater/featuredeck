@@ -3,7 +3,7 @@ React = require('react')
 # Components
 Nav = require('./Nav')
 Alert = require('./alerts/Alert')
-Features = require('./Features')
+FeaturesPage = require('./FeaturesPage')
 
 # Stores
 ApplicationStore  = require('../stores/ApplicationStore')
@@ -14,7 +14,6 @@ FluxibleMixin = require('fluxible').FluxibleMixin
 
 Application = React.createClass
   displayName: 'Application'
-
 
   mixins: [RouterMixin, FluxibleMixin]
 
@@ -38,9 +37,9 @@ Application = React.createClass
 
     switch @state.currentPageName
       when 'home', 'features'
-        output = <Features />
+        output = <FeaturesPage />
       when 'featuresNew'
-        output = <Features featuresStartState="form" />
+        output = <FeaturesPage featuresStartState="form" />
 
     return (
       <html id="application">

@@ -14,7 +14,7 @@ Component = React.createClass
     anonText: 'Please login to use actions'
 
   onDeleteClick: () ->
-    @executeAction destroyFeatureAction
+    @executeAction destroyFeatureAction, @props.id
 
   getCountControls: () ->
     [<a>up</a>, <a>down</a>]

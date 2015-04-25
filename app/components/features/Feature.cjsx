@@ -13,13 +13,13 @@ Component = React.createClass
     (
       <tr>
         <td>
-          {@props.name}
+          {@props.title}
         </td>
         <td>
           {@props.count}
         </td>
         <td>
-          <FeatureActions isLoggedIn={@props.isLoggedIn} isAdmin={@props.isAdmin} />
+          <FeatureActions isLoggedIn={@props.isLoggedIn} isAdmin={@props.isAdmin} id={@props.id} />
         </td>
       </tr>
     )

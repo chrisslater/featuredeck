@@ -1,3 +1,5 @@
+setFeaturesAction = require './actions/features/setFeaturesFromDatabase'
+
 module.exports =
 
   features:
@@ -7,9 +9,7 @@ module.exports =
     label: 'features'
     action: (context, payload, done) ->
       context.dispatch 'UPDATE_PAGE_TITLE', { pageTitle: 'Features list' }
-      getFeaturesAction = require './actions/features/getFeatures'
-      context.executeAction getFeaturesAction
-      done()
+      context.executeAction setFeaturesAction, null, done
 
   featuresNew:
     path: '/new-feature'
