@@ -4,6 +4,7 @@ React = require('react')
 FluxibleMixin = require('fluxible').FluxibleMixin
 
 # Actions
+increaseCountAction = require('../../actions/features/increaseCount')
 destroyFeatureAction = require('../../actions/features/destroyFeature')
 
 Component = React.createClass
@@ -13,11 +14,17 @@ Component = React.createClass
   getDefaultProps: () ->
     anonText: 'Please login to use actions'
 
+  onUpClick: () ->
+    @executeAction increaseCountAction, id: @props.id
+
+  onDownClick: () ->
+
+
   onDeleteClick: () ->
     @executeAction destroyFeatureAction, @props.id
 
   getCountControls: () ->
-    [<a>up</a>, <a>down</a>]
+    [<a onClick={@onUpClick}>up</a>, <a onClick={@onDownClick}>down</a>]
 
   render: () ->
     (

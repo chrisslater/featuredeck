@@ -5,8 +5,9 @@ FluxibleMixin = require('fluxible').FluxibleMixin
 
 # Actions
 submitNewFeature = require('../../actions/features/submitNewFeature')
+navigateTo = require('../../actions/navigateTo')
 
-Component = React.createClass
+module.exports =  React.createClass
   displayName: 'FeaturesForm'
   mixins: [FluxibleMixin]
 
@@ -17,11 +18,11 @@ Component = React.createClass
   onFormSubmit: (e) ->
     e.preventDefault()
     @executeAction submitNewFeature, @state
+    @executeAction navigateTo, route: 'features'
+
     @refs.form.getDOMNode().reset()
 
   render: () ->
-
-
     if @props.isLoggedIn
       output =  <form onSubmit={@onFormSubmit} ref="form">
                   <div class="form-group">
@@ -39,5 +40,3 @@ Component = React.createClass
         {output}
       </div>
     )
-
-module.exports = Component

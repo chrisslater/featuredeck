@@ -6,6 +6,9 @@ serialize       = require('serialize-javascript')
 app             = require('../app/app')
 bodyParser      = require('body-parser')
 
+# Services
+featuresService = require('../services/FeaturesService')
+
 HtmlComponent = React.createFactory(require('../app/components/Application'))
 
 server = express()
@@ -13,9 +16,6 @@ server = express()
 server.use bodyParser.json()
 server.use express.static('public')
 server.use express.static('static')
-
-featuresService = require('../services/FeaturesService')
-
 
 # Must register resource in order for this to start being used
 fetchrPlugin = app.getPlugin('FetchrPlugin')
