@@ -1,6 +1,8 @@
+# Actions
+addAlertAction = require '../actions/alerts/addAlert'
+removeAlertAction = require '../actions/alerts/removeAlert'
+
 module.exports = (options) ->
-  options = options || {}
-  foo = options.foo
 
   return {
     name: 'AlertPlugin',
@@ -16,19 +18,24 @@ module.exports = (options) ->
         # },
 
         plugActionContext: (context) ->
-          context.getFoo = () ->
-            foo
+          alert = context.alert = {}
+
+          alert.add = (payload) ->
+            context.executeAction addAlertAction, payload
+
+          alert.remove = () ->
+            context.executeAction removeAlertAction
 
         #plugStoreContext: function (storeContext) {}
 
         # Allows context plugin settings to be persisted between server and client. Called on server
         # to send data down to the client
         dehydrate: () ->
-          foo: foo
+
 
         # Called on client to rehydrate the context plugin settings
         rehydrate: (state) ->
-          foo = state.foo
+
       }
 
     # Allows dehydration of application plugin settings

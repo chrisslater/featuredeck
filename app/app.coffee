@@ -2,7 +2,7 @@ React = require('react')
 Fluxible = require('fluxible')
 routrPlugin = require('fluxible-plugin-routr')
 fetchrPlugin = require('fluxible-plugin-fetchr');
-alertPlugin = require('./plugins/alertPlugin');
+alertsPlugin = require('alerts').Plugin;
 
 Application = require('./components/Application')
 
@@ -17,9 +17,11 @@ app.plug fetchrPlugin(
   xhrPath: '/api' # Path for XHR to be served from
 )
 
-app.plug alertPlugin(
-  foo: 'bar'
-)
+console.log alertsPlugin
+
+# app.plug alertsPlugin(
+#   foo: 'bar'
+# )
 
 app.registerStore require('./stores/ApplicationStore')
 app.registerStore require('./stores/UserStore')

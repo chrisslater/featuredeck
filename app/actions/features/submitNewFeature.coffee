@@ -1,5 +1,5 @@
 module.exports = (context, payload, done) ->
   context.service.create 'features', payload, {}, (err, feature) ->
-    context.dispatch 'ADD_ALERT',
+    context.alert.add
       type: 'success'
       message: 'Feature submitted successfully'
