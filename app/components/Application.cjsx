@@ -2,7 +2,7 @@ React = require('react')
 
 # Components
 Nav = require('./Nav')
-Alert = require('./alerts/Alert')
+Alert = require('fourzerofour-plugin-alerts').Alert
 FeaturesPage = require('./FeaturesPage')
 
 # Stores
